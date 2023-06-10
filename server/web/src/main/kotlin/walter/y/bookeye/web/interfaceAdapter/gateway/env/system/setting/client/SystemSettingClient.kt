@@ -1,4 +1,4 @@
-package walter.y.bookeye.web.interfaceAdapter.client.system.setting
+package walter.y.bookeye.web.interfaceAdapter.gateway.env.system.setting.client
 
 import walter.y.bookeye.web.domain.system.setting.model.SystemAccessKey
 

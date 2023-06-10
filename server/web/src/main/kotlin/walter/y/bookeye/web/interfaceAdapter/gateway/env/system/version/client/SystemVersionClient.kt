@@ -1,4 +1,4 @@
-package walter.y.bookeye.web.interfaceAdapter.client.system.version
+package walter.y.bookeye.web.interfaceAdapter.gateway.env.system.version.client
 
 import walter.y.bookeye.web.domain.system.version.model.SystemVersion
 

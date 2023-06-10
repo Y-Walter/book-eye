@@ -1,4 +1,4 @@
-package walter.y.bookeye.web.interfaceAdapter.client.annotation
+package walter.y.bookeye.web.interfaceAdapter.gateway.annotation
 
 import org.springframework.core.annotation.AliasFor
 import org.springframework.stereotype.Component

@@ -4,8 +4,8 @@ import org.springframework.stereotype.Repository
 import walter.y.bookeye.web.domain.system.setting.repository.SystemSettingRepositoryException
 import walter.y.bookeye.web.domain.system.version.model.SystemVersionEntity
 import walter.y.bookeye.web.domain.system.version.repository.SystemVersionRepository
-import walter.y.bookeye.web.interfaceAdapter.client.system.version.SystemVersionClient
-import walter.y.bookeye.web.interfaceAdapter.client.system.version.SystemVersionClientException
+import walter.y.bookeye.web.interfaceAdapter.gateway.env.system.version.client.SystemVersionClient
+import walter.y.bookeye.web.interfaceAdapter.gateway.env.system.version.client.SystemVersionClientException
 
 @Repository
 class SystemVersionRepositoryImpl(

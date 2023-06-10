@@ -1,4 +1,4 @@
-package walter.y.bookeye.web.interfaceAdapter.client.system.version
+package walter.y.bookeye.web.interfaceAdapter.gateway.env.system.version.client
 
 open class SystemVersionClientException(
     override val message: String?,
