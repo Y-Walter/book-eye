@@ -13,7 +13,7 @@ jobs:
         
     steps: 
       - name: Check out
-        uses: actions/checout@v3
+        uses: actions/checkout@v3
       
       - name: Setup Microsoft Open JDK 17
         uses: actions/setup-java@v3
