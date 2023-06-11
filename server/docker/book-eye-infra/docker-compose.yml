@@ -1,0 +1,15 @@
+services:
+  database:
+    image: mysql:8.0.33
+    container_name: book-eye-mysql
+    restart: always
+    env_file:
+      - .env.docker
+    environment:
+      TZ: Asia/Tokyo
+    volumes:
+      - ./mysql/volumes/data:/var/lib/mysql
+      - ./mysql/volumes/my.cnf:/etc/mysql/conf.d/my.cnf
+      - ./mysql/volumes/sql:/docker-entrypoint-initdb.d
+    ports:
+      - 3306:3306

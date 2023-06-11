@@ -1,0 +1,10 @@
+logging:
+  level:
+    root: ${WEB_LOGGING_LEVEL:INFO}
+    org.springframework: INFO
+
+app:
+  gateway:
+    env:
+      system-setting:
+        access-key: ${SYSTEM_ACCESS_KEY:}

@@ -1,0 +1,5 @@
+app:
+  gateway:
+    env:
+      system-setting:
+        access-key: integration-test-system-access-key
