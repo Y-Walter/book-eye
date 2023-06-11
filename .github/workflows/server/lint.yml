@@ -24,4 +24,4 @@ jobs:
         run: chmod +x gradlew
       
       - name: Lint Kotlin Coding
-        run: ./gradlew
+        run: ./gradlew ktlint

@@ -2,11 +2,11 @@
 
 package walter.y.bookeye.web.domain.system.setting.model
 
+import io.kotest.assertions.throwables.shouldNotThrowAny
+import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.core.spec.style.BehaviorSpec
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.shouldNotBe
-import org.junit.jupiter.api.assertDoesNotThrow
-import org.junit.jupiter.api.assertThrows
 
 /**
  * [SystemAccessKey.matchesAtOnce]
@@ -41,17 +41,17 @@ class SystemAccessKey_matchesAtOnce : BehaviorSpec({
             val systemAccessKey = SystemAccessKey(key)
             val otherSystemAccessKey = SystemAccessKey(key)
             Then("1回目は使用できること") {
-                assertDoesNotThrow {
+                shouldNotThrowAny {
                     systemAccessKey.matchesAtOnce(otherSystemAccessKey)
                 }
             }
             Then("2回目は使用できないこと") {
-                assertThrows<IllegalStateException> {
+                shouldThrow<IllegalStateException> {
                     systemAccessKey.matchesAtOnce(otherSystemAccessKey)
                 }
             }
             Then("3回目も使用できないこと") {
-                assertThrows<IllegalStateException> {
+                shouldThrow<IllegalStateException> {
                     systemAccessKey.matchesAtOnce(otherSystemAccessKey)
                 }
             }

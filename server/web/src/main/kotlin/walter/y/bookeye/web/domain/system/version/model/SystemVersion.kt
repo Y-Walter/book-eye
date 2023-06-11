@@ -12,6 +12,6 @@ class SystemVersion(
     }
 
     companion object {
-        private const val VERSION_PATTERN = """(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(-[a-z\d]|)$"""
+        private const val VERSION_PATTERN = """(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(-[a-z\d]+|)$"""
     }
 }
