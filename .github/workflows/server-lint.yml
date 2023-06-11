@@ -1,10 +1,11 @@
 on:
+  workflow_dispatch:
   push:
     paths:
       - server/**
       
 jobs:
-  lint:
+  lint-server:
     runs-on: ubuntu-latest
     defaults:
       run:
