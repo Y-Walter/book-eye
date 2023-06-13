@@ -6,7 +6,6 @@ interface SystemSettingClient {
     /**
      * @exception SystemSettingClientException.Unauthorized
      * @exception SystemSettingClientException.NotFound
-     * @exception SystemSettingClientException.Unknown
      */
     fun authorize(accessKey: SystemAccessKey)
 }

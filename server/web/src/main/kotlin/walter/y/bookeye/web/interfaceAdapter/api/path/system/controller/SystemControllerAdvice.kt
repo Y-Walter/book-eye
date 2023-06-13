@@ -8,7 +8,6 @@ import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.ExceptionHandler
 import org.springframework.web.bind.annotation.ModelAttribute
 import org.springframework.web.bind.annotation.RequestHeader
-import org.springframework.web.bind.annotation.ResponseStatus
 import org.springframework.web.bind.annotation.RestControllerAdvice
 import walter.y.bookeye.web.domain.system.setting.model.SystemAccessKey
 import walter.y.bookeye.web.domain.system.setting.repository.SystemSettingRepositoryException
@@ -65,11 +64,13 @@ class SystemControllerAdvice(
     }
 
     @ExceptionHandler(ApiSystemAccessKeyInvalidException::class)
-    @ResponseStatus(HttpStatus.UNAUTHORIZED)
     fun handleSystemAccessKeyInvalidException(
         ex: ApiSystemAccessKeyInvalidException
-    ): ApiErrorResDTO {
+    ): ResponseEntity<ApiErrorResDTO> {
         log.error("[handleSystemAccessKeyInvalidException]", ex)
-        return ApiErrorResDTO.unauthorized("System authorization is failed.")
+        return ResponseEntity(
+            ApiErrorResDTO.unauthorized("System authorization is failed."),
+            HttpStatus.UNAUTHORIZED
+        )
     }
 }

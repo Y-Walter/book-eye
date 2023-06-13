@@ -4,8 +4,8 @@ import org.apache.commons.logging.LogFactory
 import org.springframework.core.Ordered
 import org.springframework.core.annotation.Order
 import org.springframework.http.HttpStatus
+import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.ExceptionHandler
-import org.springframework.web.bind.annotation.ResponseStatus
 import org.springframework.web.bind.annotation.RestControllerAdvice
 import walter.y.bookeye.web.interfaceAdapter.api.path.model.ApiErrorResDTO
 
@@ -15,27 +15,33 @@ class RootControllerAdvice {
     private val log = LogFactory.getLog(this::class.java)
 
     @ExceptionHandler(IllegalArgumentException::class)
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
     fun handleIllegalArgumentException(
         ex: IllegalArgumentException
-    ): ApiErrorResDTO {
+    ): ResponseEntity<ApiErrorResDTO> {
         log.error("[handleIllegalArgumentException]", ex)
-        return ApiErrorResDTO.invalidArgument(ex.message ?: "some argument is invalid")
+        return ResponseEntity(
+            ApiErrorResDTO.invalidArgument(ex.message ?: "some argument is invalid"),
+            HttpStatus.BAD_REQUEST
+        )
     }
 
     @ExceptionHandler(IllegalStateException::class)
-    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     fun handleIllegalStateException(
         ex: IllegalStateException
-    ): ApiErrorResDTO {
+    ): ResponseEntity<ApiErrorResDTO> {
         log.error("[handleIllegalStateException]", ex)
-        return ApiErrorResDTO.unknown()
+        return ResponseEntity(
+            ApiErrorResDTO.unknown(),
+            HttpStatus.INTERNAL_SERVER_ERROR
+        )
     }
 
     @ExceptionHandler(Exception::class)
-    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-    fun handleUnknownException(ex: Exception): ApiErrorResDTO {
+    fun handleUnknownException(ex: Exception): ResponseEntity<ApiErrorResDTO> {
         log.error("[handleUnknownException]", ex)
-        return ApiErrorResDTO.unknown()
+        return ResponseEntity(
+            ApiErrorResDTO.unknown(),
+            HttpStatus.INTERNAL_SERVER_ERROR
+        )
     }
 }

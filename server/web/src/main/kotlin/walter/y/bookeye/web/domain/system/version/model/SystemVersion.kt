@@ -7,8 +7,19 @@ class SystemVersion(
         val regex = Regex(VERSION_PATTERN)
         requireNotNull(value) { "value should not be null." }
         require(value.isNotBlank()) { "version should not be blank." }
-        require(regex.matches(value)) { "version should match pattern: $VERSION_PATTERN" }
-        value
+        val trimmedValue = value.trim()
+        require(regex.matches(trimmedValue)) { "version should match pattern: $VERSION_PATTERN" }
+        trimmedValue
+    }
+
+    override fun equals(other: Any?): Boolean {
+        if (other == null) return false
+        if (other !is SystemVersion) return false
+        return value == other.value
+    }
+
+    override fun hashCode(): Int {
+        return value.hashCode()
     }
 
     companion object {

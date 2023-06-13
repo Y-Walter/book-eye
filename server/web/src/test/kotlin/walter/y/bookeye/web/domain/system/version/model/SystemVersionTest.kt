@@ -130,7 +130,7 @@ class SystemVersionTest : BehaviorSpec({
                 }
             }
         }
-        
+
         When("000.001.0002の場合") {
             val version = "000.001.0002"
             Then("インスタンスの生成に失敗すること") {
@@ -147,6 +147,13 @@ class SystemVersionTest : BehaviorSpec({
                 }
             }
         }
+        When("全角１.２.３の場合") {
+            val version = "１.２.３"
+            Then("インスタンスの生成に失敗すること") {
+                shouldThrow<IllegalArgumentException> {
+                    SystemVersion(version)
+                }
+            }
+        }
     }
-
 })

@@ -1,5 +1,7 @@
 package walter.y.bookeye.web.interfaceAdapter.api.path.system.controller
 
+import org.springframework.http.HttpStatus
+import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
@@ -14,11 +16,17 @@ class SystemController(
     private val getVersionUseCase: GetVersionUseCase
 ) {
     @GetMapping("/health")
-    fun checkHealth(): HealthCheckResDTO = HealthCheckResDTO.success()
+    fun checkHealth(): ResponseEntity<HealthCheckResDTO> = ResponseEntity(
+        HealthCheckResDTO.success(),
+        HttpStatus.OK
+    )
 
     @GetMapping("/version")
-    fun getVersion(): VersionResDTO {
+    fun getVersion(): ResponseEntity<VersionResDTO> {
         val output = getVersionUseCase.execute(GetVersionInput())
-        return VersionResDTO(version = output.version.value)
+        return ResponseEntity(
+            VersionResDTO(version = output.version.value),
+            HttpStatus.OK
+        )
     }
 }
