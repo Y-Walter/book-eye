@@ -143,7 +143,7 @@ class SystemAccessKeyTest : BehaviorSpec({
     Given("文字種") {
         When("英字のみの場合") {
             val systemKey = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
-            systemKey.length shouldBeInRange  24..256
+            systemKey.length shouldBeInRange 24..256
             systemKey shouldMatch ALPHABET_PATTERN
 
             Then("インスタンスの生成ができること") {
@@ -154,7 +154,7 @@ class SystemAccessKeyTest : BehaviorSpec({
         }
         When("数字のみの場合") {
             val systemKey = "012345678901234567890123456789"
-            systemKey.length shouldBeInRange  24..256
+            systemKey.length shouldBeInRange 24..256
             systemKey shouldMatch NUMBER_PATTERN
 
             Then("インスタンスの生成ができること") {
@@ -165,7 +165,7 @@ class SystemAccessKeyTest : BehaviorSpec({
         }
         When("記号のみの場合") {
             val systemKey = """_-+*~`'"&%$@!.,_-+*~`'"&%$@!.,_-+*~`'"&%$@!.,"""
-            systemKey.length shouldBeInRange  24..256
+            systemKey.length shouldBeInRange 24..256
             systemKey shouldMatch SIGNAL_PATTERN
 
             Then("インスタンスの生成ができること") {
@@ -176,7 +176,7 @@ class SystemAccessKeyTest : BehaviorSpec({
         }
         When("英数字の場合") {
             val systemKey = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-            systemKey.length shouldBeInRange  24..256
+            systemKey.length shouldBeInRange 24..256
             systemKey shouldMatch ALPHABET_NUMBER_PATTERN
 
             Then("インスタンスの生成ができること") {
@@ -187,7 +187,7 @@ class SystemAccessKeyTest : BehaviorSpec({
         }
         When("利用可能な文字種をすべて使用した場合") {
             val systemKey = """abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_-+*~`'"&%$@!.,"""
-            systemKey.length shouldBeInRange  24..256
+            systemKey.length shouldBeInRange 24..256
             systemKey shouldMatch SYSTEM_ACCESS_KEY_PATTERN
 
             Then("インスタンスの生成ができること") {
@@ -198,7 +198,7 @@ class SystemAccessKeyTest : BehaviorSpec({
         }
         When("途中に半角スペースが含まれる場合") {
             val systemKey = """abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_-+*~`'"&%$@!.,"""
-            systemKey.length shouldBeInRange  24..256
+            systemKey.length shouldBeInRange 24..256
             systemKey shouldNotMatch SYSTEM_ACCESS_KEY_PATTERN
 
             Then("インスタンスの生成に失敗すること") {
@@ -209,7 +209,7 @@ class SystemAccessKeyTest : BehaviorSpec({
         }
         When("途中に全角スペースが含まれる場合") {
             val systemKey = """abcdefghijklmnopqrstuvwxyz　ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_-+*~`'"&%$@!.,"""
-            systemKey.length shouldBeInRange  24..256
+            systemKey.length shouldBeInRange 24..256
             systemKey shouldNotMatch SYSTEM_ACCESS_KEY_PATTERN
 
             Then("インスタンスの生成に失敗すること") {

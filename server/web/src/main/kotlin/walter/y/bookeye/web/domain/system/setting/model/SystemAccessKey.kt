@@ -16,12 +16,14 @@ class SystemAccessKey(
         trimmedKey
     }
 
-    fun matchesAtOnce(other: SystemAccessKey): Boolean {
-        val key = value
-        check(key.isNotEmpty()) { "systemAccessKey has already used more than once." }
-        val matched = value == other.value
-        value = ""
-        return matched
+    override fun equals(other: Any?): Boolean {
+        if (other == null) return false
+        if (other !is SystemAccessKey) return false
+        return value == other.value
+    }
+
+    override fun hashCode(): Int {
+        return value.hashCode()
     }
 
     companion object {

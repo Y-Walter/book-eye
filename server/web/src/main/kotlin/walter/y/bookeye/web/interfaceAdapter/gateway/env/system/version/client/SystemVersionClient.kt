@@ -6,7 +6,6 @@ interface SystemVersionClient {
 
     /**
      * @exception SystemVersionClientException.NotFound
-     * @exception SystemVersionClientException.Unknown
      */
     fun getVersion(): SystemVersion
 }

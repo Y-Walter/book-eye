@@ -9,7 +9,7 @@ class SystemSettingClientImpl(
     private val gatewayEnvConfig: GatewayEnvConfig
 ) : SystemSettingClient {
     override fun authorize(accessKey: SystemAccessKey) {
-        if (!accessKey.matchesAtOnce(gatewayEnvConfig.systemSetting.accessKey)) {
+        if (accessKey != gatewayEnvConfig.systemSetting.accessKey) {
             throw SystemSettingClientException.Unauthorized(message = "System access key is invalid.")
         }
     }
