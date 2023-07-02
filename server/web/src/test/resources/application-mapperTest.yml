@@ -1,0 +1,6 @@
+﻿spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:63306/book_eye
+    username: root
+    password: test

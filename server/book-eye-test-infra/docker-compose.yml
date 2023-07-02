@@ -1,15 +1,14 @@
-services:
+﻿services:
   database:
     image: mysql:8.0.33
-    container_name: book-eye-mysql
+    container_name: test-book-eye-mysql
     restart: always
     environment:
       TZ: Asia/Tokyo
       MYSQL_DATABASE: book_eye
       MYSQL_ROOT_PASSWORD: test
     volumes:
-      - ./mysql/volumes/data:/var/lib/mysql
       - ./mysql/volumes/my.cnf:/etc/mysql/conf.d/my.cnf
       - ../../../sql:/docker-entrypoint-initdb.d
     ports:
-      - 3306:3306
+      - 63306:3306

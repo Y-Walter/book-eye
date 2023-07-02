@@ -4,6 +4,7 @@ ktlint = "11.3.2"
 kotest = "5.6.2"
 mysql = "8.0.33"
 jackson = "2.15.2"
+testcontainers = "1.18.3"
 
 [libraries]
 archunit = { group = "com.tngtech.archunit", name = "archunit", version = "1.0.1" }
@@ -15,9 +16,11 @@ mysql-connector-j = { group = "com.mysql", name = "mysql-connector-j", version.r
 jackson-core = { group = "com.fasterxml.jackson.core", name = "jackson-core", version.ref = "jackson" }
 jackson-databind = { group = "com.fasterxml.jackson.core", name = "jackson-databind", version.ref = "jackson" }
 jackson-module-kotlin = { group = "com.fasterxml.jackson.module", name = "jackson-module-kotlin", version = "jackson" }
+testcontainers = { group = "org.testcontainers", name = "testcontainers", version.ref = "testcontainers" }
+testcontainers-mysql = { group = "org.testcontainers", name = "mysql", version.ref = "testcontainers" }
 
 [bundles]
-test = ["archunit", "kotest-assertions-core", "kotest-runner-jnunit5", "mockk"]
+test = ["archunit", "kotest-assertions-core", "kotest-runner-jnunit5", "mockk", "testcontainers", "testcontainers-mysql"]
 integrationTest = ["kotest-assertions-core", "kotest-runner-jnunit5", "kotest-extensions-spring"]
 jackson = ["jackson-core", "jackson-databind"]
 
