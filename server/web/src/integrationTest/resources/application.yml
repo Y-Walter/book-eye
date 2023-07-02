@@ -1,4 +1,7 @@
 app:
+  api:
+    password:
+      bcrypt-strength: 10
   gateway:
     env:
       system-setting:
