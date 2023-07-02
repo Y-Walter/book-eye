@@ -32,13 +32,12 @@ subprojects {
 		}
 	}
 
-	dependencies {
-		implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
-		implementation("org.jetbrains.kotlin:kotlin-reflect")
-	}
-
 	tasks.withType<JavaExec>().configureEach {
 		javaLauncher.set(javaToolchains.launcherFor(java.toolchain))
+	}
+
+	dependencies {
+		implementation("org.jetbrains.kotlin:kotlin-reflect")
 	}
 
 	tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
