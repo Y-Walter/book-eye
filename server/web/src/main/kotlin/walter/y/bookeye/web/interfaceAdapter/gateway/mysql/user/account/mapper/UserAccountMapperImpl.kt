@@ -3,7 +3,7 @@
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate
 import walter.y.bookeye.web.interfaceAdapter.gateway.mysql.user.account.model.UserAccount
 
-//@Mapper
+// @Mapper
 class UserAccountMapperImpl(
     private val namedParameterJdbcTemplate: NamedParameterJdbcTemplate
 ) : UserAccountMapper {
@@ -20,5 +20,4 @@ class UserAccountMapperImpl(
                 isEnabled = rs.getBoolean("is_enabled")
             )
         }.firstOrNull()
-
 }

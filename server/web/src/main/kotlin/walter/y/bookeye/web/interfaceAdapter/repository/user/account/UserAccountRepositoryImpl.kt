@@ -8,7 +8,7 @@ import walter.y.bookeye.web.domain.user.account.repository.UserAccountRepository
 import walter.y.bookeye.web.domain.user.model.UserId
 import walter.y.bookeye.web.interfaceAdapter.gateway.mysql.user.account.mapper.UserAccountMapper
 
-//@Repository
+// @Repository
 class UserAccountRepositoryImpl(
     private val userAccountMapper: UserAccountMapper
 ) : UserAccountRepository {
