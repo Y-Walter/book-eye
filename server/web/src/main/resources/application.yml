@@ -4,7 +4,10 @@ logging:
     org.springframework: INFO
 
 app:
+  api:
+    password:
+      bcrypt-strength: ${PASSWORD_STRENGTH:10}
   gateway:
     env:
       system-setting:
-        access-key: ${SYSTEM_ACCESS_KEY:}
+        access-key: ${SYSTEM_ACCESS_KEY:System-Access-Key-Used-4-Development-Only}
