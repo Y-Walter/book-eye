@@ -16,7 +16,7 @@ import walter.y.bookeye.web.interfaceAdapter.api.path.model.ApiErrorResDTO
 import walter.y.bookeye.web.useCase.system.AccessKeyValidateUseCase
 import walter.y.bookeye.web.useCase.system.input.AccessKeyValidateInput
 
-@RestControllerAdvice
+@RestControllerAdvice(basePackageClasses = [SystemController::class])
 @Order(Ordered.HIGHEST_PRECEDENCE)
 class SystemControllerAdvice(
     private val accessKeyValidateUseCase: AccessKeyValidateUseCase
