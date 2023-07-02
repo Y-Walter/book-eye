@@ -15,7 +15,9 @@ import walter.y.bookeye.web.interfaceAdapter.api.handler.logout.LogoutSuccessHan
 
 @Configuration
 @EnableWebSecurity
-open class WebSecurityConfig {
+open class WebSecurityConfig(
+    private val passwordConfig: PasswordConfig
+) {
     @Bean
     open fun securityFilterChain(http: HttpSecurity): SecurityFilterChain {
         http.authorizeHttpRequests { requests ->
@@ -54,5 +56,5 @@ open class WebSecurityConfig {
     }
 
     @Bean
-    open fun passwordEncoder(): PasswordEncoder = BCryptPasswordEncoder()
+    open fun passwordEncoder(): PasswordEncoder = BCryptPasswordEncoder(passwordConfig.bcryptStrength.value)
 }
