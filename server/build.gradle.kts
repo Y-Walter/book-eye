@@ -32,12 +32,12 @@ subprojects {
 		}
 	}
 
-	tasks.withType<JavaExec>().configureEach {
-		javaLauncher.set(javaToolchains.launcherFor(java.toolchain))
-	}
-
 	dependencies {
 		implementation("org.jetbrains.kotlin:kotlin-reflect")
+	}
+
+	tasks.withType<JavaExec>().configureEach {
+		javaLauncher.set(javaToolchains.launcherFor(java.toolchain))
 	}
 
 	tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
