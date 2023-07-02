@@ -2,12 +2,16 @@
 
 import org.springframework.security.core.GrantedAuthority
 import org.springframework.security.core.userdetails.UserDetails
+import walter.y.bookeye.web.domain.user.account.model.PrincipalName
+import walter.y.bookeye.web.domain.user.account.model.UserAccountId
+import walter.y.bookeye.web.domain.user.account.model.UserAccountPassword
+import walter.y.bookeye.web.domain.user.model.UserId
 
 data class UserPrincipal(
-    val userId: Long,
-    val accountId: Long,
-    val principalName: String,
-    private val password: String,
+    val userId: UserId,
+    val accountId: UserAccountId,
+    val principalName: PrincipalName,
+    private val password: UserAccountPassword,
     private val accountExpired: Boolean,
     private val accountLocked: Boolean,
     private val credentialExpired: Boolean,
@@ -15,9 +19,9 @@ data class UserPrincipal(
 ) : UserDetails {
     override fun getAuthorities(): MutableCollection<out GrantedAuthority>? = mutableListOf()
 
-    override fun getPassword(): String = password
+    override fun getPassword(): String = password.readOnce()
 
-    override fun getUsername(): String = principalName
+    override fun getUsername(): String = principalName.value
 
     override fun isAccountNonExpired(): Boolean = !accountExpired
 
