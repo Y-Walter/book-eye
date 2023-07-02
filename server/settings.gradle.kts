@@ -1,4 +1,5 @@
 include(
     "web",
-    "docker",
+    "book-eye-infra",
+    "book-eye-test-infra",
 )
