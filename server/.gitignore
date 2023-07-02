@@ -41,5 +41,4 @@ out/
 .env.**
 
 ### Docker ###
-/docker/book-eye-infra/mysql/volumes/data
-/docker/book-eye-infra/mysql/volumes/my.cnf
+book-eye-infra/mysql/volumes/data

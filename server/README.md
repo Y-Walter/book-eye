@@ -1,7 +1,8 @@
 # book-eye/server
 書籍管理システムのサーバーサイド
 - [web](web/README.md)
-- [docker](docker/README.md)
+- [book-eye-infra](book-eye-infra/README.md)
+- [book-eye-test-infra](book-eye-test-infra/README.md)
 
 ## 動作環境
 - Spring Boot 3.x
