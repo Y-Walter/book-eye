@@ -1,3 +1,5 @@
+name: Lint Server
+
 on:
   workflow_dispatch:
   push:

@@ -1,7 +1,7 @@
 services:
   database:
     image: mysql:8.0.33
-    container_name: book-eye-mysql
+    container_name: book-eye-test-mysql
     restart: always
     environment:
       TZ: Asia/Tokyo

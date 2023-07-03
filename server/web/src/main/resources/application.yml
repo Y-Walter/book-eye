@@ -1,8 +1,3 @@
-logging:
-  level:
-    root: ${WEB_LOGGING_LEVEL:INFO}
-    org.springframework: INFO
-
 app:
   api:
     password:
@@ -11,3 +6,17 @@ app:
     env:
       system-setting:
         access-key: ${SYSTEM_ACCESS_KEY:System-Access-Key-Used-4-Development-Only}
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/book_eye
+    username: ${DATABASE_USER_NAME:root}
+    password: ${DATABASE_USER_PASSWORD:test}
+    hikari:
+      connection-test-query: SELECT 1
+
+logging:
+  level:
+    root: ${WEB_LOGGING_LEVEL:INFO}
+    org.springframework: INFO

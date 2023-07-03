@@ -1,3 +1,5 @@
+name: Test Server
+
 on:
   workflow_dispatch:
   push:
@@ -23,8 +25,14 @@ jobs:
       - name: Grant Excecte Permission for Gradle
         run: chmod +x gradlew
 
+      - name: Setup Docker
+        run: ./gradlew book-eye-test-infra:dockerComposeUp
+      
       - name: Execute Test
         run: ./gradlew test
 
       - name: Execute Integration Test
         run: ./gradlew integrationTest
+
+      - name: Finalize Docker
+        run: ./gradlew book-eye-test-infra:dockerComposeDown

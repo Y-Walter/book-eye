@@ -1,11 +1,11 @@
 package walter.y.bookeye.web.interfaceAdapter.repository.system.setting
 
-import org.springframework.stereotype.Repository
 import walter.y.bookeye.web.domain.system.setting.model.SystemSettingEntity
 import walter.y.bookeye.web.domain.system.setting.repository.SystemSettingRepository
 import walter.y.bookeye.web.domain.system.setting.repository.SystemSettingRepositoryException
 import walter.y.bookeye.web.interfaceAdapter.gateway.env.system.setting.client.SystemSettingClient
 import walter.y.bookeye.web.interfaceAdapter.gateway.env.system.setting.client.SystemSettingClientException
+import walter.y.bookeye.web.interfaceAdapter.repository.annotation.Repository
 
 @Repository
 class SystemSettingRepositoryImpl(
